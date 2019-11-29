@@ -9,6 +9,7 @@ resource "aws_vpc" "this" {
 
   tags = {
     Name = "${var.vpc_name}"
+    billto = "${var.billto}"
   }
 }
 
@@ -22,6 +23,7 @@ resource "aws_subnet" "public_subnet" {
 
   tags = {
     Name = "${var.vpc_name}-public-subnet"
+    billto = "${var.billto}"
   }
 }
 
@@ -34,6 +36,7 @@ resource "aws_subnet" "private_subnet" {
 
   tags = {
     Name = "${var.vpc_name}-private-subnet"
+    billto = "${var.billto}"
   }
 }
 
@@ -42,7 +45,8 @@ resource "aws_eip" "eip" {
   vpc = true
 
   tags = {
-    Name = "Elastic IP"
+    Name = "${var.vpc_name}-EIP"
+    billto = "${var.billto}"
   }
 }
 
@@ -56,7 +60,8 @@ resource "aws_route_table" "rt_public" {
   }
 
   tags = {
-    Name = "${var.vpc_name}-public_route_table"
+    Name = "${var.vpc_name}-public-route-table"
+    billto = "${var.billto}"
   }
 }
 
@@ -72,7 +77,8 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.this.id}"
 
   tags = {
-    Name = "${var.vpc_name}-internet-gateway"
+    Name = "${var.vpc_name}-IG"
+    billto = "${var.billto}"
   }
 }
 
@@ -82,7 +88,8 @@ resource "aws_nat_gateway" "nat-gw" {
   subnet_id     = "${element(aws_subnet.public_subnet.*.id, 0)}"
 
   tags {
-    Name = "${var.vpc_name}-nat-gateway"
+    Name = "${var.vpc_name}-NATG"
+    billto = "${var.billto}"
   }
 }
 
@@ -97,6 +104,7 @@ resource "aws_route_table" "rt_private" {
 
   tags {
     Name = "${var.vpc_name}-private-route-table"
+    billto = "${var.billto}"
   }
 }
 
@@ -167,5 +175,6 @@ resource "aws_default_network_acl" "default" {
   
   tags = {
     Name = "${var.vpc_name}-nacl"
+    billto = "${var.billto}"
   }
 }

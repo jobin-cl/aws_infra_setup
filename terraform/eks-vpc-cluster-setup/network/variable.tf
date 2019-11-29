@@ -1,9 +1,14 @@
 #VPC
-variable "create_vpc" {
-  default = " "
+#variable "create_vpc" {
+#  default = ""
+#}
+
+variable billto {
+  description = "Who should be charged with this spend?"
+#  default = "ATB"
 }
 
-variable "cluster_name" {
+variable "cluster-name" {
   description = "Cluster name"
 }
 

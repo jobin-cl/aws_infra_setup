@@ -26,3 +26,8 @@ variable "subnet_ids" {
 variable "kubernetes-server-instance-sg" {
   description = "Kubenetes control server security group"
 }
+
+variable billto {
+  description = "Who should be charged with this spend?"
+#  default = "ATB"
+}

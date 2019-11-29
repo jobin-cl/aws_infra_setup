@@ -1,10 +1,17 @@
 #
 # Variables Configuration
 #
-variable "cluster-name" {}
+variable billto {
+  description = "Who should be charged with this spend?"
+#  default = "ATB"
+}
+
+variable "cluster-name" {
+  description = "Cluster name"
+}
 
 variable "vpc_id" {
-  description = "VPC ID "
+  description = "VPC ID"
 }
 
 variable "eks_subnets" {

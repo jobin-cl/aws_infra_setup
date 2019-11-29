@@ -79,13 +79,13 @@ resource "aws_iam_role_policy_attachment" "worker-node-resource_tagging_for_eks"
 }
 
 resource "aws_iam_instance_profile" "worker-node" {
-  name = "eks-worker-node"
+  name = "${var.cluster-name}-worker-node"
   role = "${aws_iam_role.worker-node-role.name}"
 }
 
 #Security Group
 resource "aws_security_group" "worker-node-sg" {
-  name        = "worker-nodeSG"
+  name        = "${var.cluster-name}-worker-node-sg"
   description = "Security group for all nodes in the cluster"
   vpc_id      = "${var.vpc_id}"
 

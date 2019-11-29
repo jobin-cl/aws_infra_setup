@@ -23,3 +23,12 @@ variable "server-name" {}
 variable "k8-subnet" {
   type = ""
 }
+
+variable billto {
+  description = "Who should be charged with this spend?"
+#  default = "ATB"
+}
+
+variable "cluster-name" {
+  description = "Cluster name"
+}

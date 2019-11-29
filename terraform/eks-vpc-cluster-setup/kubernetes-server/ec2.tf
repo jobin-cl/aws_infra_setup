@@ -37,7 +37,7 @@ resource "aws_instance" "kubernetes-server" {
   }
 
   tags = {
-    Name = "${var.cluster-name}-kub-${var.server-name}"
+    Name = "${var.cluster-name}-${var.server-name}"
     billto = "${var.billto}"
   }
 }

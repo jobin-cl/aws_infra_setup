@@ -9,6 +9,7 @@ resource "aws_vpc" "this" {
 
   tags = {
     Name = "${var.vpc_name}"
+    billto = "${var.billto}"
   }
 }
 
@@ -22,9 +23,10 @@ resource "aws_subnet" "public_subnet" {
 
   tags = "${
     map(
-    "Name", "Public_subnet_${data.aws_availability_zones.available.names[count.index]}",
-    "kubernetes.io/cluster/${var.cluster_name}" , "owned",
+    "Name", "${var.cluster-name}-public-subnet-${data.aws_availability_zones.available.names[count.index]}",
+    "kubernetes.io/cluster/${var.cluster-name}" , "owned",
     "kubernetes.io/role/elb" , "1",
+    "billto" , "${var.billto}",
     )
   }"
 }
@@ -38,9 +40,10 @@ resource "aws_subnet" "private_subnet" {
 
   tags = "${
     map(
-    "Name", "Private_subnet_${data.aws_availability_zones.available.names[count.index]}",
-    "kubernetes.io/cluster/${var.cluster_name}" , "owned",
+    "Name", "${var.cluster-name}-private-subnet-${data.aws_availability_zones.available.names[count.index]}",
+    "kubernetes.io/cluster/${var.cluster-name}" , "owned",
     "kubernetes.io/role/internal-elb" , "1",
+    "billto" , "${var.billto}",
     )
   }"
 }
@@ -53,7 +56,8 @@ resource "aws_subnet" "master_subnet" {
   availability_zone = "${element(data.aws_availability_zones.available.names, count.index)}"
 
   tags = {
-    Name = "Master_${element(data.aws_availability_zones.available.names, count.index)}"
+    Name = "${var.cluster-name}-master-${element(data.aws_availability_zones.available.names, count.index)}"
+    billto = "${var.billto}"
   }
 }
 
@@ -65,7 +69,8 @@ resource "aws_subnet" "worker_subnet" {
   availability_zone = "${element(data.aws_availability_zones.available.names, count.index)}"
 
   tags = {
-    Name = "Worker_${element(data.aws_availability_zones.available.names, count.index)}"
+    Name = "${var.cluster-name}-worker_${element(data.aws_availability_zones.available.names, count.index)}"
+    billto = "${var.billto}"
   }
 }
 
@@ -74,7 +79,8 @@ resource "aws_eip" "eip" {
   vpc = true
 
   tags = {
-    Name = "Elastic IP"
+    Name = "${var.cluster-name}-EIP"
+    billto = "${var.billto}"
   }
 }
 
@@ -88,7 +94,8 @@ resource "aws_route_table" "rt_public" {
   }
 
   tags = {
-    Name = "Public_route_table"
+    Name = "${var.cluster-name}-public-route-table"
+    billto = "${var.billto}"
   }
 }
 
@@ -111,7 +118,8 @@ resource "aws_internet_gateway" "igw" {
   vpc_id = "${aws_vpc.this.id}"
 
   tags = {
-    Name = "Internet-Gateway"
+    Name = "${var.cluster-name}-IG"
+    billto = "${var.billto}"
   }
 }
 
@@ -121,7 +129,8 @@ resource "aws_nat_gateway" "nat-gw" {
   subnet_id     = "${element(aws_subnet.master_subnet.*.id, 0)}"
 
   tags {
-    Name = "Nat_gateway"
+    Name = "${var.cluster-name}-NATG"
+    billto = "${var.billto}"
   }
 }
 
@@ -136,7 +145,8 @@ resource "aws_route_table" "rt_private" {
   }
 
   tags {
-    Name = "Private_route_table"
+    Name = "${var.cluster-name}-private-route-table"
+    billto = "${var.billto}"
   }
 }
 

@@ -12,11 +12,6 @@ variable vpc_name {
 #  default = "eks-vpc-name"
 }
 
-variable "vpc_id" {
-  description = "What is your VPC id?"
-#  default ="vpc-0bac98ee2f0ec1a7c"
-}
-
 variable "cluster-name" {
   description = "Name your EKS cluster"
 #  default = "eks-cluster"

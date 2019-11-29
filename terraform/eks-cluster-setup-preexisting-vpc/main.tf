@@ -1,6 +1,5 @@
 provider "aws" {
   region  = "${var.region}"
-#  profile = "${var.profile}"
 }
 
 data "aws_subnet_ids" "example" {
@@ -20,6 +19,8 @@ module "kubernetes-server" {
   instance_key  = "${var.key}"
   vpc_id        = "${var.vpc_id}"
   k8-subnet     = "${data.aws_subnet_ids.example.ids[0]}"
+  cluster-name  = "${var.cluster-name}"
+  billto        = "${var.billto}"
 }
 
 module "eks" {
@@ -30,4 +31,6 @@ module "eks" {
   eks_subnets                   = ["${data.aws_subnet_ids.example.ids}"]
   worker_subnet                 = ["${data.aws_subnet_ids.example.ids}"]
   subnet_ids                    = ["${data.aws_subnet_ids.example.ids}"]
+  cluster-name                  = "${var.cluster-name}"
+  billto                        = "${var.billto}"
 }

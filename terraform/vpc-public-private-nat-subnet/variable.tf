@@ -1,6 +1,6 @@
 #VPC
-variable "create_vpc" {
-  default = ""
+variable billto {
+  description = "Who should be charged for this spend?"
 }
 
 variable "vpc_name" {
