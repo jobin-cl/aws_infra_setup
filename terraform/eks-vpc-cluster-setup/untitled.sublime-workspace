@@ -1,0 +1,498 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"sub_ids",
+				"aws_subnet_ids"
+			],
+			[
+				"ecs",
+				"ecs_host_role"
+			],
+			[
+				"conf",
+				"atb-confluence"
+			],
+			[
+				"availability",
+				"availability_zones"
+			],
+			[
+				"Create",
+				"CreateCluster"
+			],
+			[
+				"Des",
+				"DescribeRepositories"
+			],
+			[
+				"y",
+				"y"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"contents": "var.cluster-name\n  Enter a value: test-eks-cluster\n\nvar.eks_subnets\n  Master subnet ids\n\n  Enter a value: test-eks-master-subnet\n\nvar.kubernetes-server-instance-sg\n  Kubenetes control server security group\n\n  Enter a value: sg-05ae70fc84466dcd0\n\nvar.subnet_ids\n  List of all subnet in cluster\n\n  Enter a value: test-eks-cluster-subnet\n\nvar.vpc_id\n  VPC ID\n\n  Enter a value: vpc-0bac98ee2f0ec1a7c\n\nvar.worker_subnet\n  Enter a value: test-eks-worker-subnet\n\nprovider.aws.region\n  The region where AWS operations will take place. Examples\n  are us-east-1, us-west-2, etc.\n\n  Enter a value: us-west-2\n",
+			"settings":
+			{
+				"buffer_size": 597,
+				"line_ending": "Unix",
+				"name": "var.cluster-name"
+			}
+		},
+		{
+			"file": "/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/kubernetes-server/variable.tf",
+			"settings":
+			{
+				"buffer_size": 467,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "variable.tf",
+			"settings":
+			{
+				"buffer_size": 647,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/variable.tf",
+			"settings":
+			{
+				"buffer_size": 647,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 87.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Users/snegi/Documents/github",
+		"/Users/snegi/Documents/github/aws_infra_setup",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform",
+		"/Users/snegi/Documents/github/ecs_ansible_tf",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/ansible"
+	],
+	"file_history":
+	[
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/cluster/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/kubernetes-server/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/main.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/kubernetes-server/ec2.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/test/variables.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/main.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/cluster/eks-worker-nodes.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/kubernetes-server/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/network/vpc.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/Kubernetes/cluster/eks-cluster.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/test/subnet.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/variables.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/worker-node-iam-role-instance-profile.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/master-cluster-iam-role.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/vpc-networking.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/master-cluster-security-group.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/master-cluster.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/worker-node-security-group.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/worker-node-connect-master.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi/worker-node-asg-launch-config.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/eks-cluster.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/alb.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/kubernetes-server/output.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/kubernetes-server/ec2.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/network/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/network/vpc.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/output.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/variable.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/main.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/workstation-external-ip.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/terraform.tfstate",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/output.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/cluster/eks-worker-nodes.tf",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/tf/create-ecs-cluster/ecs_auto_scaling_launch_config.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/vpc-pulic-subnet/main.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/terraform/vpc-pulic-subnet/variables.tf",
+		"/Users/snegi/Documents/github/aws_infra_setup/vpc-subnets-igw-nat/variables.tf",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/exercise1/test.rb",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/exercise4/features/weather.feature",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/aruba-ruby-test/features/cucumber-legacy-test.feature",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/testing_str.rb",
+		"/Users/snegi/Documents/ruby/test.rb",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/exercise2/features/search.feature",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/exercise2/features/step_definitions/search_steps.rb",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/Postman-Test-Framework/data/weather.json",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/Postman-Test-Framework/Postman-Test-Framework.json.postman_collection",
+		"/Users/snegi/Documents/ruby/report.html",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/demo1/features/weather.feature",
+		"/Users/snegi/Documents/ruby/automated-test-framework-master/ATDD-Cucumber-Selenium-Ruby/exercise4/features/step_definitions/weather_steps.rb",
+		"/Users/snegi/Documents/__Data/medzpeed/backup/httpd-conf/ezppay-atb-httpd.conf",
+		"/Users/snegi/Documents/__Data/medzpeed/backup/httpd-conf/httpd.conf",
+		"/Volumes/GoogleDrive/My Drive/ATB - Management - Strategy/wildcard certs/generated-private-key-cmd",
+		"/Users/snegi/Downloads/146685379/STAR_agiletrailblazers_com.crt",
+		"/Users/snegi/Downloads/146685379/COMODORSADomainValidationSecureServerCA.crt",
+		"/Users/snegi/Downloads/146685379/COMODORSAAddTrustCA.crt",
+		"/Users/snegi/Downloads/146685379/AddTrustExternalCARoot.crt",
+		"/Volumes/GoogleDrive/My Drive/ATB - Management - Strategy/wildcard certs/atb-wildcard-private.key",
+		"/Users/snegi/Downloads/agiletrailblazers.com.txt",
+		"/Users/snegi/Downloads/keys/atb-cert/README",
+		"/Users/snegi/Documents/__Data/medzpeed/ezppay-move-atb/ezppay-tomcat7/conf/context.xml",
+		"/Users/snegi/Documents/__Data/medzpeed/backup/tomcat-conf/server.xml",
+		"/Users/snegi/Documents/__Data/medzpeed/backup/tomcat-conf/tomcat-users.xml",
+		"/Users/snegi/Documents/__Data/medzpeed/backup/tomcat-conf/context.xml",
+		"/Users/snegi/Documents/__Data/medzpeed/ezppay-move-atb/DB/ezppay_dev_2018-02-17.sql",
+		"/Users/snegi/Documents/__Data/Ezppay/Keys/AWS-sushil.keys",
+		"/Users/snegi/Downloads/US-Visa-Needs/Final-Papers/0-appointmentconfirmation-fingerprint-photo copy",
+		"/Users/snegi/Library/Containers/com.apple.mail/Data/Library/Mail Downloads/F1BBB71D-EAB9-4E90-B67C-2F3415708692/nexus",
+		"/Users/snegi/appd-appagent/conf/controller-info.xml",
+		"/Users/snegi/appd-appagent/ver4.3.0.0/conf/controller-info.xml",
+		"/Users/snegi/Documents/ruby/features/search.feature",
+		"/Users/snegi/Documents/ruby/features/step_definitions/search_steps.rb",
+		"/Users/snegi/Desktop/Petula",
+		"/Users/snegi/Desktop/freddie",
+		"/Users/snegi/Desktop/QVC",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/tf/create-ecs-cluster/terraform.tfvars",
+		"/Users/snegi/Documents/github/Jenkins-Licenses",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_container_def.tf",
+		"/Users/snegi/Documents/github/atlassian_docker/jira/Dockerfile",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/ansible/ecs_cluster.yml",
+		"/Users/snegi/Documents/github/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_elb.tf",
+		"/Users/snegi/Downloads/crucible-4.4.0.zip",
+		"/Users/snegi/Downloads/sourcetree.license",
+		"/Users/snegi/Downloads/fecru-4.4.0/bin/start.sh",
+		"/Users/snegi/Downloads/fecru-4.4.0/bin/start.bat",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terraform.tfvars",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/ecs_cloudwatch.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/ecs_cluster.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_container_def.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-role/policies/s3_policy.json",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-role/ecs_iam_role_profile.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terraform.tfstate",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terraform.tfstate.json",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terraform.tfstate-1",
+		"/Users/snegi/Downloads/terraform (3).json",
+		"/Users/snegi/Downloads/terraform (1).tfstate",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/s3-bucket/main.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/s3-bucket/backend.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terra.log",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/s3-bucket/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_elb.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/ecs_auto_scaling_launch_config.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/atlassian_docker/sitemonitoring/Dockerfile",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/outputs.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/terra_exec.log",
+		"/Users/snegi/Documents/__Data/docker/atb-git/graph.dot",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/outputs.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/ecs_elb.tf-1",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_auto_scaling_launch_config.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-cluster/modules/container/ecs_container_def.tf-1",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-role/aws_provider.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/create-ecs-role/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/modules/container/ecs_iam_role_profile.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/modules/container/ecs_auto_scaling_launch_config.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/modules/container/ecs_container_def.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/modules/container/ecs_elb.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/ecs_cluster.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/modules/container/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/variables.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/terraform.tfvars",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/task_definitions/jira.json",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/ecs_iam_role_profile.tf",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/ecs_container_def.tf-1",
+		"/Users/snegi/Documents/__Data/docker/atb-git/ecs_ansible_tf/tf/ecs_elb.tf"
+	],
+	"find":
+	{
+		"height": 39.0
+	},
+	"find_in_files":
+	{
+		"height": 101.0,
+		"where_history":
+		[
+			"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup",
+			"/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-example-hashi",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"k8-subnet",
+			"region",
+			"}\"",
+			"worker_subnet",
+			"subnet_ids",
+			"worker-nodeSG",
+			"test-eks",
+			"test-",
+			"vpc_id"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 3,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 597,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								597,
+								597
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var.cluster-name",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/kubernetes-server/variable.tf",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 467,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								402,
+								465
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Terraform/Terraform.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "variable.tf",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								266,
+								266
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Terraform/Terraform.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/snegi/Documents/github/aws_infra_setup/terraform/eks-base-setup/variable.tf",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 647,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Terraform/Terraform.sublime-syntax",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 24.0
+	},
+	"input":
+	{
+		"height": 36.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "untitled.sublime-project",
+	"replace":
+	{
+		"height": 70.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 373.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
