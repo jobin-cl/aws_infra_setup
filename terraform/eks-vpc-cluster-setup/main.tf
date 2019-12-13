@@ -30,6 +30,7 @@ module "kubernetes-server" {
 module "eks" {
   source                        = "./cluster"
   vpc_id                        = "${module.vpc.vpc_id}"
+  instance_type                 = "${var.instance_type}"
   cluster-name                  = "${var.cluster-name}"
   kubernetes-server-instance-sg = "${module.kubernetes-server.kubernetes-server-instance-sg}"
   eks_subnets                   = ["${module.vpc.master_subnet}"]

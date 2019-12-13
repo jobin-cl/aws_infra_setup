@@ -171,7 +171,7 @@ USERDATA
 resource "aws_launch_configuration" "worker" {
   iam_instance_profile = "${aws_iam_instance_profile.worker-node.name}"
   image_id             = "${data.aws_ami.eks-worker.id}"
-  instance_type        = "t2.micro"
+  instance_type        = "${var.instance_type}"
   name_prefix          = "worker-node"
   security_groups      = ["${aws_security_group.worker-node-sg.id}"]
   user_data_base64     = "${base64encode(local.worker-node-userdata)}"

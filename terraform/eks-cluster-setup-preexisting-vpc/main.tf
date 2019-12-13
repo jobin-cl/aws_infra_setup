@@ -1,5 +1,6 @@
 provider "aws" {
   region  = "${var.region}"
+  profile = "devops-svc"
 }
 
 data "aws_subnet_ids" "example" {
@@ -26,6 +27,7 @@ module "kubernetes-server" {
 module "eks" {
   source                        = "./cluster"
   vpc_id                        = "${var.vpc_id}"
+  instance_type                 = "${var.instance_type}"
   cluster-name                  = "${var.cluster-name}"
   kubernetes-server-instance-sg = "${module.kubernetes-server.kubernetes-server-instance-sg}"
   eks_subnets                   = ["${data.aws_subnet_ids.example.ids}"]

@@ -18,6 +18,11 @@ variable "worker_subnet" {
   type = "list"
 }
 
+variable "instance_type" {
+  description = "Size your instance.. t2.micro, t2.medium.."
+#  default = "t2.micro"
+}
+
 variable "subnet_ids" {
   type        = "list"
   description = "List of all subnet in cluster"

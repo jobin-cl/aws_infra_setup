@@ -14,6 +14,11 @@ variable "vpc_id" {
   description = "VPC ID"
 }
 
+variable "instance_type" {
+  description = "Size your instance.. t2.micro, t2.medium.."
+#  default = "t2.micro"
+}
+
 variable "eks_subnets" {
   description = "Master subnet ids"
   type        = "list"
