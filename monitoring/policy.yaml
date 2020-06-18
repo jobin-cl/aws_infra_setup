@@ -6,6 +6,7 @@ policies:
     Report on total count of non compliant instances and stops them after 12 hours
   filters:
     - or:
+        - "tag:Name": absent
         - "tag:Owner": absent
         - "tag:OwnerEmail": absent
         - "tag:Use": absent
