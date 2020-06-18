@@ -15,7 +15,7 @@ policies:
       op: stop
       hours: 12
 
-- name: high-risk-security-groups-remediate
+- name: high-risk-security-groups-prevention
   description: |
     Remove any rule from a security group that allows 0.0.0.0/0 or ::/0 (IPv6) ingress
     and notify the user who added the violating rule.
