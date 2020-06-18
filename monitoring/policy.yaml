@@ -1,0 +1,165 @@
+policies:
+- name: s3-cross-account
+  description: |
+    Checks S3 for buckets with cross-account access and
+    removes the cross-account access.
+  resource: s3
+  region: us-east-1
+  filters:
+    - type: cross-account
+  #actions:
+  #  - type: remove-statements
+  #    statement_ids: matched
+
+- name: ec2-require-non-public-and-encrypted-volumes
+  resource: aws.ec2
+  description: |
+    Provision a lambda and cloud watch event target
+    that looks at all new instances and stop those with
+    unencrypted volumes.
+  mode:
+    type: cloudtrail
+    role: CloudCustodian-QuickStart
+    events:
+      - RunInstances
+  filters:
+    - type: ebs
+      key: Encrypted
+      value: false
+  actions:
+    - stop
+
+- name: tag-compliance-1
+  resource: aws.ec2
+  description: |
+    Schedule a resource that does not meet tag compliance policies
+    to be stopped in four days.
+  filters:
+    - State.Name: running
+    - and:
+      - "tag:Owner": absent
+      - "tag:OwnerEmail": absent
+  actions:
+    - type: mark-for-op
+      op: stop
+      hours: 12
+
+- name: tag-compliance-2
+  resource: aws.ec2
+  description: |
+    Schedule a resource that does not meet tag compliance policies
+    to be stopped in four days.
+  filters:
+    - State.Name: running
+    - and:
+      - "tag:Owner": absent
+  actions:
+    - type: mark-for-op
+      op: stop
+      hours: 12
+
+- name: tag-compliance-3
+  resource: aws.ec2
+  description: |
+    Schedule a resource that does not meet tag compliance policies
+    to be stopped in four days.
+  filters:
+    - State.Name: running
+    - and:
+      - "tag:OwnerEmail": absent
+  actions:
+    - type: mark-for-op
+      op: stop
+      hours: 12
+
+- name: tag-compliance-4
+  resource: aws.ec2
+  description: |
+    Schedule a resource that does not meet tag compliance policies
+    to be stopped in four days.
+  filters:
+    - State.Name: running
+    - and:
+      - "tag:Use": absent 
+  actions:
+    - type: mark-for-op
+      op: stop
+      hours: 12
+
+- name: offhourperiodic
+  resource: ec2
+  description: |
+    Schedule for all EC2 instances to be off at 6 PM.
+    mode:
+      type: periodic
+      schedule: "cron(5 * * * ? *)"
+  filters:
+    - type: offhour
+      default_tz: est
+      offhour: 18
+      tag: longAfterHours
+  actions:
+    - stop
+ 
+- name: onhourperiodic
+  resource: ec2
+  description: |
+    Schedule for all EC2 instances to be on at 8 AM. 
+    mode:
+      type: periodic
+      schedule: "cron(6 * * * ? *)"
+  filters:
+    - type: onhour
+      default_tz: est
+      onhour: 8
+      tag: longAfterHours
+
+- name: high-risk-security-groups-remediate
+  resource: security-group
+  description: |
+    Remove any rule from a security group that allows 0.0.0.0/0 or ::/0 (IPv6) ingress
+    and notify the user  who added the violating rule.
+  mode:
+      type: cloudtrail
+      events:
+        - source: ec2.amazonaws.com
+          event: AuthorizeSecurityGroupIngress
+          ids: "requestParameters.groupId"
+        - source: ec2.amazonaws.com
+          event: AuthorizeSecurityGroupEgress
+          ids: "requestParameters.groupId"
+        - source: ec2.amazonaws.com
+          event: RevokeSecurityGroupEgress
+          ids: "requestParameters.groupId"
+        - source: ec2.amazonaws.com
+          event: RevokeSecurityGroupIngress
+          ids: "requestParameters.groupId"
+  filters:
+    - or:
+          - type: ingress
+            Cidr:
+              value: "0.0.0.0/0"
+          - type: ingress
+            CidrV6:
+              value: "::/0"
+  actions:
+      - type: remove-permissions
+        ingress: matched
+      - type: notify
+        template: default.html
+        priority_header: 1
+        subject: "Open Security Group Rule Created-[custodian {{ account }} - {{ region }}]"
+        violation_desc: "Security Group(s) Which Had Rules Open To The World:"
+        action_desc: |
+            "Actions Taken:  The Violating Security Group Rule Has Been Removed As It Typically
+            Allows Direct Incoming Public Internet Traffic Access To Your Resource Which Violates Our
+            Company's Cloud Security Policy.  Please Refer To Our Company's Cloud Security Best
+            Practices Documentation.  If This Ingress Rule Is Required You May Contact The Security
+            Team To Request An Exception."
+        to:
+            - it@cirruslabs.io
+            - event-owner
+        transport:
+            type: sqs
+            queue: https://sqs.us-east-1.amazonaws.com/12345678900/cloud-custodian-mailer
+            region: us-east-1
