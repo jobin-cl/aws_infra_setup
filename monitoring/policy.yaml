@@ -1,124 +1,24 @@
 policies:
-- name: s3-cross-account
-  description: |
-    Checks S3 for buckets with cross-account access and
-    removes the cross-account access.
-  resource: s3
-  region: us-east-1
-  filters:
-    - type: cross-account
-  #actions:
-  #  - type: remove-statements
-  #    statement_ids: matched
 
-- name: ec2-require-non-public-and-encrypted-volumes
-  resource: aws.ec2
-  description: |
-    Provision a lambda and cloud watch event target
-    that looks at all new instances and stop those with
-    unencrypted volumes.
-  mode:
-    type: cloudtrail
-    role: CloudCustodian-QuickStart
-    events:
-      - RunInstances
-  filters:
-    - type: ebs
-      key: Encrypted
-      value: false
-  actions:
-    - stop
-
-- name: tag-compliance-1
-  resource: aws.ec2
-  description: |
-    Schedule a resource that does not meet tag compliance policies
-    to be stopped in four days.
-  filters:
-    - State.Name: running
-    - and:
-      - "tag:Owner": absent
-      - "tag:OwnerEmail": absent
-  actions:
-    - type: mark-for-op
-      op: stop
-      hours: 12
-
-- name: tag-compliance-2
-  resource: aws.ec2
-  description: |
-    Schedule a resource that does not meet tag compliance policies
-    to be stopped in four days.
-  filters:
-    - State.Name: running
-    - and:
-      - "tag:Owner": absent
-  actions:
-    - type: mark-for-op
-      op: stop
-      hours: 12
-
-- name: tag-compliance-3
-  resource: aws.ec2
-  description: |
-    Schedule a resource that does not meet tag compliance policies
-    to be stopped in four days.
-  filters:
-    - State.Name: running
-    - and:
-      - "tag:OwnerEmail": absent
-  actions:
-    - type: mark-for-op
-      op: stop
-      hours: 12
-
-- name: tag-compliance-4
-  resource: aws.ec2
-  description: |
-    Schedule a resource that does not meet tag compliance policies
-    to be stopped in four days.
-  filters:
-    - State.Name: running
-    - and:
-      - "tag:Use": absent 
-  actions:
-    - type: mark-for-op
-      op: stop
-      hours: 12
-
-- name: offhourperiodic
+- name: ec2-tag-compliance
   resource: ec2
   description: |
-    Schedule for all EC2 instances to be off at 6 PM.
-    mode:
-      type: periodic
-      schedule: "cron(5 * * * ? *)"
+    Report on total count of non compliant instances and stops them after 12 hours
   filters:
-    - type: offhour
-      default_tz: est
-      offhour: 18
-      tag: longAfterHours
+    - or:
+        - "tag:Owner": absent
+        - "tag:OwnerEmail": absent
+        - "tag:Use": absent
   actions:
-    - stop
- 
-- name: onhourperiodic
-  resource: ec2
-  description: |
-    Schedule for all EC2 instances to be on at 8 AM. 
-    mode:
-      type: periodic
-      schedule: "cron(6 * * * ? *)"
-  filters:
-    - type: onhour
-      default_tz: est
-      onhour: 8
-      tag: longAfterHours
+    - type: mark-for-op
+      op: stop
+      hours: 12
 
 - name: high-risk-security-groups-remediate
-  resource: security-group
   description: |
     Remove any rule from a security group that allows 0.0.0.0/0 or ::/0 (IPv6) ingress
-    and notify the user  who added the violating rule.
+    and notify the user who added the violating rule.
+  resource: security-group
   mode:
       type: cloudtrail
       events:
@@ -163,3 +63,23 @@ policies:
             type: sqs
             queue: https://sqs.us-east-1.amazonaws.com/12345678900/cloud-custodian-mailer
             region: us-east-1
+
+- name: downtime
+  resource: ec2
+  filters:
+    - type: offhour
+      default_tz: est
+      offhour: 19
+      tag: autoOn
+  actions:
+    - stop
+
+- name: uptime
+  resource: ec2
+  filters:
+    - type: onhour
+      default_tz: est
+      onhour: 7
+      tag: autoOn
+  actions:
+    - start
