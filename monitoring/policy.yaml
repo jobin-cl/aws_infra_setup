@@ -9,6 +9,7 @@ policies:
         - "tag:Owner": absent
         - "tag:OwnerEmail": absent
         - "tag:Use": absent
+      	- "tag:autoOn": absent
   actions:
     - type: mark-for-op
       op: stop
